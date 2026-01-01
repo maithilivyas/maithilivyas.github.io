@@ -3,130 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maithili Vyas | Game Dev & AI Engineer</title>
+    <title>Maithili Vyas | Game Developer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <div class="bg-grid"></div>
-
     <nav>
-        <div class="logo">MV_SYSTEMS</div>
+        <div class="logo">MAITHILI VYAS</div>
         <ul class="nav-links">
-            <li><a href="#about">// ABOUT</a></li>
-            <li><a href="#projects">// PROJECTS</a></li>
-            <li><a href="#contact">// CONTACT</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Selected Work</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <header id="hero">
-        <div class="hero-content">
-            <h1 class="glitch" data-text="MAITHILI VYAS">MAITHILI VYAS</h1>
-            <h2 class="typing-text">AI Engineer | Game Designer | Level Artist</h2>
-            <p>Blending Artificial Intelligence with Immersive Virtual Worlds.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary-btn">Initialize Projects</a>
-                <a href="https://maithili.itch.io" target="_blank" class="btn secondary-btn">
-                    <i class="fab fa-itch-io"></i> Visit Itch.io
-                </a>
-            </div>
+    <header class="hero">
+        <div class="hero-text">
+            <h1>Game Developer & <br>AI Engineer.</h1>
+            <p>Creating immersive 3D environments and intelligent gameplay systems using Unreal Engine 5 & Unity.</p>
+            <a href="#work" class="btn-scroll">View Portfolio ↓</a>
         </div>
     </header>
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">SYSTEM_STATUS: <span class="highlight">ONLINE</span></h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I am a <strong>Computer Science Engineer (AIML)</strong> and passionate <strong>Game Developer</strong> based in Jodhpur. I don't just write code; I build worlds.</p>
-                    [cite_start]<p>Currently in my 6th Semester (CGPA: 9.34)[cite: 8], I specialize in bridging the gap between <strong>Generative AI</strong> and <strong>Real-Time Rendering</strong>. My work focuses on creating hyper-realistic environments in <strong>Unreal Engine 5</strong> and interactive experiences in <strong>Unity</strong>.</p>
-                    <p>I am deeply curious about <strong>AR/VR technologies</strong> and how they redefine human interaction.</p>
-                </div>
-                <div class="skills-card">
-                    <h3>Tech Stack</h3>
-                    <ul>
-                        <li>Unreal Engine 5 (Blueprints, Lumen, Niagara)</li>
-                        <li>Unity (C#, AR Foundation)</li>
-                        <li>AI & ML (Python, Neural Networks)</li>
-                        <li>VR Development (Meta Quest)</li>
-                        <li>Level Design & Lighting</li>
-                    </ul>
+    <section id="about" class="section-padding">
+        <div class="container split-layout">
+            <div class="text-block">
+                <h2>About Me</h2>
+                <p>I am a Computer Science Engineer specializing in AIML with a deep passion for Game Development. My work sits at the intersection of technical logic and creative design.</p>
+                <p>I have experience in <strong>Virtual Production</strong> and <strong>Interactive 3D Environments</strong>. I love solving complex problems, whether it's optimizing systems or scripting intelligent AI behaviors for FPS games.</p>
+                <div class="skills-list">
+                    <span>Unreal Engine 5</span>
+                    <span>Unity (C#)</span>
+                    <span>AI/ML (Python)</span>
+                    <span>VR Development</span>
+                    <span>Level Design</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects">
+    <section id="work" class="section-padding dark-bg">
         <div class="container">
-            <h2 class="section-title">PROJECT_DATABASE</h2>
+            <h2>Selected Works</h2>
+            
             <div class="project-grid">
 
-                <div class="project-card">
-                    <div class="card-image" style="background-image: url('assets/project1.jpg');"></div>
-                    <div class="card-content">
+                <article class="project-item">
+                    <div class="project-image">
+                        <img src="assets/museum.jpg" alt="VR Museum Experience">
+                    </div>
+                    <div class="project-info">
                         <h3>VR Museum Experience</h3>
-                        <span class="tag">Unreal Engine 5</span> <span class="tag">VR</span>
-                        <p>A fully immersive VR environment for Meta Quest. Features physical hand-tracking interactions, proximity-based audio, and modular architectural design.</p>
-                        <a href="https://maithili.itch.io/your-game-link" target="_blank" class="play-btn">PLAY BUILD</a>
+                        <p class="tech-stack">Unreal Engine 5 | Meta Quest VR</p>
+                        <p>Architected a fully immersive VR museum with modular assets. Programmed complex interaction mechanics allowing users to physically grab and inspect artifacts with hand-tracking physics.</p>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="card-image" style="background-image: url('assets/project2.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Interactive AR App</h3>
-                        <span class="tag">Unity</span> <span class="tag">AR Foundation</span>
-                        <p>Mobile AR app utilizing plane detection and raycasting. Users can manipulate digital assets (scale, rotate) in the physical world.</p>
-                        <a href="#" class="play-btn disable">DEMO VIDEO</a>
+                <article class="project-item">
+                    <div class="project-image">
+                        <video controls poster="assets/japan-station.jpg">
+                            <source src="assets/my-cinematic.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-image" style="background-image: url('assets/project3.jpg');"></div>
-                    <div class="card-content">
+                    <div class="project-info">
                         <h3>Japan Station Cinematic</h3>
-                        <span class="tag">UE5</span> <span class="tag">Level Design</span>
-                        <p>Photorealistic cyberpunk environment. Utilized Lumen for lighting, Niagara for rain/thunder, and advanced material instances for wet asphalt.</p>
-                        <a href="https://youtu.be/your-video-link" target="_blank" class="play-btn">WATCH CINEMATIC</a>
+                        <p class="tech-stack">UE5 | Lumen | Niagara</p>
+                        <p>Directed a photorealistic night scene using advanced material instances for wet asphalt and neon signage. Utilized Niagara for dynamic storm effects.</p>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <div class="card-image" style="background-image: url('assets/project4.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Cosmic Dodge</h3>
-                        <span class="tag">Unity 2D</span> <span class="tag">C#</span>
-                        <p>Fast-paced survival game with progressive difficulty algorithms and object pooling for memory efficiency.</p>
-                        <a href="https://maithili.itch.io/your-game-link" target="_blank" class="play-btn">PLAY GAME</a>
+                <article class="project-item">
+                    <div class="project-image">
+                        <img src="assets/fps.jpg" alt="FPS Shooter">
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-image" style="background-image: url('assets/project5.jpg');"></div>
-                    <div class="card-content">
+                    <div class="project-info">
                         <h3>Tactical FPS AI</h3>
-                        <span class="tag">UE5</span> <span class="tag">AI Behavior Trees</span>
-                        <p>FPS framework with intelligent AI agents that patrol and detect players via sight/sound perception systems.</p>
-                        <a href="https://maithili.itch.io/your-game-link" target="_blank" class="play-btn">DOWNLOAD</a>
+                        <p class="tech-stack">UE5 Blueprints | Behavior Trees</p>
+                        <p>Designed a shooter framework with custom character controllers. Programmed AI agents that patrol, listen, and engage using tactical combat logic.</p>
                     </div>
-                </div>
+                </article>
 
             </div>
         </div>
     </section>
 
     <footer id="contact">
-        <h2>INITIATE_COMMUNICATION</h2>
-        <p>Interested in collaborating on AI or Game Dev projects?</p>
-        <a href="mailto:maithili.vyas13@gmail.com" class="email-link">maithili.vyas13@gmail.com</a>
-        <div class="socials">
-            <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
-            <a href="https://github.com/maithilivyas" target="_blank">GitHub</a>
-            <a href="https://maithili.itch.io" target="_blank">Itch.io</a>
+        <div class="container">
+            <h2>Let's build something together.</h2>
+            <p>Open for opportunities in Game Development.</p>
+            <a href="mailto:maithili.vyas13@gmail.com" class="email-btn">maithili.vyas13@gmail.com</a>
+            
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+                <a href="https://github.com/maithilivyas" target="_blank">GitHub</a>
+                <a href="https://maithili.itch.io" target="_blank">Itch.io</a>
+            </div>
+            <p class="copyright">© 2026 Maithili Vyas</p>
         </div>
-        <p class="copyright">© 2026 Maithili Vyas. Built with code & curiosity.</p>
     </footer>
 
     <script src="script.js"></script>
