@@ -1,0 +1,235 @@
+/* Base Settings */
+:root {
+    --bg-color: #050505;
+    --card-bg: #111111;
+    --text-main: #e0e0e0;
+    --neon-blue: #00f3ff;
+    --neon-purple: #bc13fe;
+    --font-header: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Background Grid Effect */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(5, 5, 5, 0.9);
+    border-bottom: 1px solid var(--neon-blue);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-header);
+    font-weight: 700;
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Hero Section */
+#hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.hero-content h1 {
+    font-family: var(--font-header);
+    font-size: 4rem;
+    margin: 0;
+    text-shadow: 0 0 20px var(--neon-blue);
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    color: var(--neon-purple);
+    margin-bottom: 20px;
+}
+
+.cta-buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    margin: 10px;
+    text-decoration: none;
+    font-family: var(--font-header);
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.primary-btn:hover {
+    background: var(--neon-blue);
+    color: black;
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.secondary-btn {
+    background: var(--neon-purple);
+    color: white;
+    border: 2px solid var(--neon-purple);
+}
+
+.secondary-btn:hover {
+    background: transparent;
+    color: var(--neon-purple);
+}
+
+/* Projects Grid */
+section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-header);
+    border-left: 5px solid var(--neon-purple);
+    padding-left: 15px;
+    margin-bottom: 50px;
+    font-size: 2rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+.card-image {
+    height: 200px;
+    background-color: #333; /* Placeholder color */
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.tag {
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--neon-blue);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.play-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px 0;
+    background: var(--neon-blue);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--font-header);
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    letter-spacing: 2px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px;
+    background: #000;
+    border-top: 1px solid #333;
+}
+
+.email-link {
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.socials {
+    margin-top: 20px;
+}
+
+.socials a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.socials a:hover {
+    color: var(--neon-purple);
+}
