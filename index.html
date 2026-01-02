@@ -3,106 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maithili Vyas | Game Developer</title>
+    <title>Maithili Vyas | Game Designer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">MAITHILI VYAS</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#work">Selected Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
     <header class="hero">
-        <div class="hero-text">
-            <h1>Game Developer & <br>AI Engineer.</h1>
-            <p>Creating immersive 3D environments and intelligent gameplay systems using Unreal Engine 5 & Unity.</p>
-            <a href="#work" class="btn-scroll">View Portfolio ↓</a>
+        <div class="hero-bg" style="background-image: url('assets/hero-collage.jpg');"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content scroll-effect">
+            <h1 class="main-title">GAME DESIGNER</h1>
+            
+            <div class="profile-container">
+                <img src="assets/profile.jpg" alt="Maithili Vyas" class="profile-pic">
+            </div>
+
+            <div class="about-me">
+                <h2>Maithili Vyas</h2>
+                <p class="tagline">CSE (AIML) Student | Level Designer | Virtual Production</p>
+                <p class="bio">
+                    I bridge the gap between technical logic and artistic vision. As a Computer Science student specializing in <strong>AI/ML</strong>, I build intelligent game systems while fueling my passion for <strong>Immersive Environments</strong> and <strong>AR/VR Technologies</strong>. I don't just write code; I craft worlds.
+                </p>
+                <a href="downloads/resume.pdf" target="_blank" class="btn-resume">Download Resume ↓</a>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="section-padding">
-        <div class="container split-layout">
-            <div class="text-block">
-                <h2>About Me</h2>
-                <p>I am a Computer Science Engineer specializing in AIML with a deep passion for Game Development. My work sits at the intersection of technical logic and creative design.</p>
-                <p>I have experience in <strong>Virtual Production</strong> and <strong>Interactive 3D Environments</strong>. I love solving complex problems, whether it's optimizing systems or scripting intelligent AI behaviors for FPS games.</p>
-                <div class="skills-list">
-                    <span>Unreal Engine 5</span>
-                    <span>Unity (C#)</span>
-                    <span>AI/ML (Python)</span>
-                    <span>VR Development</span>
-                    <span>Level Design</span>
+    <section id="showcase">
+        <div class="container">
+            <h2 class="section-header scroll-effect">Selected Works</h2>
+
+            <div class="project-row scroll-effect">
+                <div class="media-side">
+                    <img src="assets/nataraja-main.jpg" alt="Nataraja Cinematic">
+                </div>
+                <div class="text-side">
+                    <h3>01. Ancient Temple Cinematic</h3>
+                    <p class="tech">Unreal Engine 5 | Level Design | Cinematic</p>
+                    <p>A cinematic sequence featuring a Nataraja statue inside an ancient cave. [cite_start]I designed the environment layout, adjusted lighting and fog for a mystical ambiance, and utilized post-process volumes for visual tone[cite: 124, 125, 126].</p>
                 </div>
             </div>
+
+            <div class="project-row reverse scroll-effect">
+                <div class="media-side">
+                    <video controls poster="assets/japan-poster.jpg">
+                        <source src="assets/japan-cinematic.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-side">
+                    <h3>02. Japan Station</h3>
+                    <p class="tech">Unreal Engine 5.3 | Lumen | Real-Time Rendering</p>
+                    <p>A real-time cinematic inspired by Japanese nightlife. I focused on mood and atmosphere using directional lighting and reflection captures to simulate wet asphalt. [cite_start]The scene features Niagara rain particles and thunder effects[cite: 129, 131, 132].</p>
+                </div>
+            </div>
+
+            <div class="project-row scroll-effect">
+                <div class="media-side">
+                    <img src="assets/vr-museum-main.jpg" alt="VR Museum">
+                </div>
+                <div class="text-side">
+                    <h3>03. VR Museum Experience</h3>
+                    <p class="tech">Meta Quest | Spatial Storytelling | Interaction</p>
+                    <p>A fully immersive VR museum. [cite_start]I architected the structure using modular assets and programmed complex interactions, allowing users to physically grab and inspect artifacts using hand-tracking physics[cite: 135, 136, 138].</p>
+                </div>
+            </div>
+
+            <div class="project-row reverse scroll-effect">
+                <div class="media-side">
+                    <video controls poster="assets/lock-poster.jpg">
+                        <source src="assets/lock-key-gameplay.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-side">
+                    <h3>04. Lock-and-Key Logic</h3>
+                    <p class="tech">UE Blueprints | AI Behavior Trees</p>
+                    <p>A logic-driven puzzle game. [cite_start]I implemented a glowing key mechanic, dynamic event triggers, and a NavMesh-based AI enemy that actively tracks the player, adding tension to the exploration[cite: 141, 143, 145].</p>
+                </div>
+            </div>
+
+            <div class="project-row scroll-effect">
+                <div class="media-side">
+                    <video controls poster="assets/shooter-poster.jpg">
+                        <source src="assets/shooter-gameplay.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-side">
+                    <h3>05. Third Person Shooter</h3>
+                    <p class="tech">Combat Mechanics | UI/UX | AI Agents</p>
+                    <p>A complete shooter framework focusing on AI combat. Enemies utilize pathfinding to engage the player. [cite_start]I also designed the UI/HUD for health systems and the "Game Over" logic flow[cite: 150, 151, 153].</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="work" class="section-padding dark-bg">
+    <section id="gallery">
         <div class="container">
-            <h2>Selected Works</h2>
+            <h2 class="section-header scroll-effect">Blueprints & Gallery</h2>
+            <p class="gallery-sub scroll-effect">Behind the scenes logic and environmental details.</p>
             
-            <div class="project-grid">
-
-                <article class="project-item">
-                    <div class="project-image">
-                        <img src="assets/museum.jpg" alt="VR Museum Experience">
-                    </div>
-                    <div class="project-info">
-                        <h3>VR Museum Experience</h3>
-                        <p class="tech-stack">Unreal Engine 5 | Meta Quest VR</p>
-                        <p>Architected a fully immersive VR museum with modular assets. Programmed complex interaction mechanics allowing users to physically grab and inspect artifacts with hand-tracking physics.</p>
-                    </div>
-                </article>
-
-                <article class="project-item">
-                    <div class="project-image">
-                        <video controls poster="assets/japan-station.jpg">
-                            <source src="assets/my-cinematic.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="project-info">
-                        <h3>Japan Station Cinematic</h3>
-                        <p class="tech-stack">UE5 | Lumen | Niagara</p>
-                        <p>Directed a photorealistic night scene using advanced material instances for wet asphalt and neon signage. Utilized Niagara for dynamic storm effects.</p>
-                    </div>
-                </article>
-
-                <article class="project-item">
-                    <div class="project-image">
-                        <img src="assets/fps.jpg" alt="FPS Shooter">
-                    </div>
-                    <div class="project-info">
-                        <h3>Tactical FPS AI</h3>
-                        <p class="tech-stack">UE5 Blueprints | Behavior Trees</p>
-                        <p>Designed a shooter framework with custom character controllers. Programmed AI agents that patrol, listen, and engage using tactical combat logic.</p>
-                    </div>
-                </article>
-
-            </div>
+            <div class="gallery-grid">
+                <img src="assets/gallery-1.jpg" class="scroll-effect" alt="Detail Shot">
+                <img src="assets/gallery-2.jpg" class="scroll-effect" alt="Detail Shot">
+                <img src="assets/gallery-3.jpg" class="scroll-effect" alt="Blueprint Logic">
+                <img src="assets/gallery-4.jpg" class="scroll-effect" alt="UI Design">
+                </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="container">
-            <h2>Let's build something together.</h2>
-            <p>Open for opportunities in Game Development.</p>
-            <a href="mailto:maithili.vyas13@gmail.com" class="email-btn">maithili.vyas13@gmail.com</a>
-            
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
-                <a href="https://github.com/maithilivyas" target="_blank">GitHub</a>
-                <a href="https://maithili.itch.io" target="_blank">Itch.io</a>
-            </div>
-            <p class="copyright">© 2026 Maithili Vyas</p>
-        </div>
+    <footer>
+        <p>© 2026 Maithili Vyas | Built with Code & Creativity</p>
     </footer>
 
     <script src="script.js"></script>
