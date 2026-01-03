@@ -3,140 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maithili Vyas | Game Designer</title>
+    <title>MAITHILI VYAS | LEVEL DESIGNER</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-bg" style="background-image: url('assets/hero-collage.jpg');"></div>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content scroll-effect">
-            <h1 class="main-title">GAME DESIGNER</h1>
+    <div id="flashlight"></div>
+
+    <div class="noise"></div>
+
+    <nav>
+        <div class="logo">MV_PROTOCOLS</div>
+        <div class="status">SYSTEM: ONLINE</div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="glitch" data-text="MAITHILI VYAS">MAITHILI VYAS</h1>
+            <h2 class="subtitle">BUILDING NIGHTMARES & DREAMSCAPES</h2>
+            <p class="bio-text">
+                Level Designer. AI Specialist. Horror Enthusiast.<br>
+                I don't just write code; I craft darkness.
+            </p>
+            <a href="#work" class="btn-explore">ENTER THE VOID ↓</a>
+        </section>
+
+        <section id="work">
             
-            <div class="profile-container">
-                <img src="assets/profile.jpg" alt="Maithili Vyas" class="profile-pic">
-            </div>
-
-            <div class="about-me">
-                <h2>Maithili Vyas</h2>
-                <p class="tagline">Level Designer | Virtual Production | AR/VR Enthusiast</p>
-                
-                <p class="bio">
-                    I am a passionate Game Developer dedicated to creating immersive 3D environments and interactive virtual reality experiences. <br><br>
-                    Currently pursuing my <strong>B.Tech in AIML</strong>, I apply technical logic to creative design, pushing the boundaries of what's possible in <strong>Unreal Engine 5</strong> and <strong>Unity</strong>. My focus is on storytelling through world-building and exploring the future of AR/VR technologies.
-                </p>
-            </div>
-        </div>
-    </header>
-
-    <section id="showcase">
-        <div class="container">
-            <h2 class="section-header scroll-effect">Selected Works</h2>
-
-            <div class="project-row scroll-effect">
-                <div class="media-side">
-                    <img src="assets/nataraja-main.jpg" alt="Nataraja Cinematic">
-                </div>
-                <div class="text-side">
-                    <h3>01. Ancient Temple Cinematic</h3>
-                    <p class="tech">Unreal Engine 5 | Level Design | Cinematic</p>
-                    <p>A cinematic sequence featuring a Nataraja statue inside an ancient cave. I designed the environment layout, adjusted lighting and fog for a mystical ambiance, and utilized post-process volumes for visual tone.</p>
+            <div class="project-container">
+                <div class="project-bg" style="background-image: url('assets/nataraja-main.jpg');"></div>
+                <div class="content-box">
+                    <h3>01 // ANCIENT TEMPLE</h3>
+                    <p>UNREAL ENGINE 5 CINEMATIC</p>
+                    <div class="hidden-details">
+                        <p>A mystical cave environment utilizing Lumen and Volumetric Fog to create atmosphere.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-row reverse scroll-effect">
-                <div class="media-side">
-                    <video controls poster="assets/japan-poster.jpg">
-                        <source src="assets/japan-cinematic.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="text-side">
-                    <h3>02. Japan Station</h3>
-                    <p class="tech">Unreal Engine 5.3 | Lumen | Real-Time Rendering</p>
-                    <p>A real-time cinematic inspired by Japanese nightlife. I focused on mood and atmosphere using directional lighting and reflection captures to simulate wet asphalt. The scene features Niagara rain particles and thunder effects.</p>
-                </div>
-            </div>
-
-            <div class="project-row scroll-effect">
-                <div class="media-side">
-                    <img src="assets/vr-museum-main.jpg" alt="VR Museum">
-                </div>
-                <div class="text-side">
-                    <h3>03. VR Museum Experience</h3>
-                    <p class="tech">Meta Quest | Spatial Storytelling | Interaction</p>
-                    <p>A fully immersive VR museum. I architected the structure using modular assets and programmed complex interactions, allowing users to physically grab and inspect artifacts using hand-tracking physics.</p>
+            <div class="project-container">
+                <div class="project-bg" style="background-image: url('assets/japan-poster.jpg');"></div>
+                <div class="content-box">
+                    <h3>02 // JAPAN STATION</h3>
+                    <p>REAL-TIME CYBERPUNK</p>
+                    <div class="hidden-details">
+                        <p>Night scene study. Wet asphalt shaders, neon lighting, and Niagara rain systems.</p>
+                        <a href="assets/japan-cinematic.mp4" target="_blank">WATCH FOOTAGE ></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-row reverse scroll-effect">
-                <div class="media-side">
-                    <video controls poster="assets/lock-poster.jpg">
-                        <source src="assets/lock-key-gameplay.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="text-side">
-                    <h3>04. Lock-and-Key Logic</h3>
-                    <p class="tech">UE Blueprints | AI Behavior Trees</p>
-                    <p>A logic-driven puzzle game. I implemented a glowing key mechanic, dynamic event triggers, and a NavMesh-based AI enemy that actively tracks the player, adding tension to the exploration.</p>
+            <div class="project-container">
+                <div class="project-bg" style="background-image: url('assets/vr-museum-main.jpg');"></div>
+                <div class="content-box">
+                    <h3>03 // VR MUSEUM</h3>
+                    <p>META QUEST EXPERIENCE</p>
+                    <div class="hidden-details">
+                        <p>Fully immersive spatial design. Hand-tracking physics and modular architecture.</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="project-row scroll-effect">
-                <div class="media-side">
-                    <video controls poster="assets/shooter-poster.jpg">
-                        <source src="assets/shooter-gameplay.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="text-side">
-                    <h3>05. Third Person Shooter</h3>
-                    <p class="tech">Combat Mechanics | UI/UX | AI Agents</p>
-                    <p>A complete shooter framework focusing on AI combat. Enemies utilize pathfinding to engage the player. I also designed the UI/HUD for health systems and the "Game Over" logic flow.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="gallery">
-        <div class="container">
-            <h2 class="section-header scroll-effect">Blueprints & Gallery</h2>
-            <p class="gallery-sub scroll-effect">Behind the scenes logic and environmental details.</p>
             
-            <div class="gallery-grid">
-                <img src="assets/gallery-1.jpg" class="scroll-effect" alt="Detail Shot">
-                <img src="assets/gallery-2.jpg" class="scroll-effect" alt="Detail Shot">
-                <img src="assets/gallery-3.jpg" class="scroll-effect" alt="Blueprint Logic">
-                <img src="assets/gallery-4.jpg" class="scroll-effect" alt="UI Design">
+            <div class="project-container">
+                <div class="project-bg" style="background-image: url('assets/lock-poster.jpg');"></div>
+                <div class="content-box">
+                    <h3>04 // LOCK & KEY</h3>
+                    <p>LOGIC PUZZLE</p>
+                    <div class="hidden-details">
+                        <p>A horror-puzzle mechanic. Find the keys before the AI hunts you down.</p>
+                        <a href="assets/lock-key-gameplay.mp4" target="_blank">WATCH GAMEPLAY ></a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="scroll-effect">
-        <div class="container">
-            <h2>Let's Create Something Amazing</h2>
-            <p>I am currently open for internships and full-time opportunities in Game Design and Virtual Production.</p>
+        </section>
+
+        <section class="footer">
+            <h2>INITIALIZE CONTACT?</h2>
+            <a href="mailto:maithili.vyas13@gmail.com" class="giant-link">SAY HELLO</a>
             
-            <a href="mailto:maithili.vyas13@gmail.com" class="email-link">maithili.vyas13@gmail.com</a>
-
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/maithilivyas" target="_blank">LinkedIn</a>
-                <a href="https://github.com/maithilivyas" target="_blank">GitHub</a>
-                <a href="https://maithili.itch.io" target="_blank">Itch.io</a>
+            <div class="links">
+                <a href="Downloads/resume.pdf" target="_blank">[ DOWNLOAD RESUME ]</a>
+                <a href="https://www.linkedin.com/in/maithilivyas" target="_blank">[ LINKEDIN ]</a>
+                <a href="https://maithili.itch.io" target="_blank">[ ITCH.IO ]</a>
             </div>
-
-            <a href="downloads/resume.pdf" target="_blank" class="btn-download">
-                Download My Resume ↓
-            </a>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Maithili Vyas | Built with Code & Creativity</p>
-    </footer>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
