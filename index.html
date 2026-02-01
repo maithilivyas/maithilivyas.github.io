@@ -1,143 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maithili Vyas | Game Designer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body>
+// --- PART 1: BACKGROUND STARS (FIXED SHAPE) ---
+const starContainer = document.getElementById('star-container');
+const sceneBG = new THREE.Scene();
+const cameraBG = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const rendererBG = new THREE.WebGLRenderer({ alpha: true });
 
-    <header class="hero">
-        <div class="hero-bg" style="background-image: url('assets/hero-collage.jpg');"></div>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content scroll-effect">
-            <h1 class="main-title">GAME DESIGNER</h1>
-            
-            <div class="profile-container">
-                <img src="assets/profile.jpg" alt="Maithili Vyas" class="profile-pic">
-            </div>
+rendererBG.setSize(window.innerWidth, window.innerHeight);
+starContainer.appendChild(rendererBG.domElement);
 
-            <div class="about-me">
-                <h2>Maithili Vyas</h2>
-                <p class="tagline">Level Designer | Virtual Production</p>
-                
-                <p class="bio">
-                    I am a passionate Game Developer dedicated to creating immersive 3D environments and interactive virtual reality experiences. <br><br>
-                    Currently pursuing my <strong>B.Tech in AIML</strong>, I apply technical logic to creative design, pushing the boundaries of what's possible in <strong>Unreal Engine 5</strong> and <strong>Unity</strong>. My focus is on storytelling through world-building and exploring the future of AR/VR technologies.
-                </p>
-            </div>
-        </div>
-    </header>
+// FUNCTION TO CREATE A CIRCLE TEXTURE (Removes Squares)
+function getStarTexture() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const ctx = canvas.getContext('2d');
+    const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+    grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 32, 32);
+    const texture = new THREE.Texture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+}
 
-    <section id="showcase">
-        <div class="container">
-            <h2 class="section-header scroll-effect">Projects</h2>
+const geometry = new THREE.BufferGeometry();
+const count = 3000;
+const positions = new Float32Array(count * 3);
+const colors = new Float32Array(count * 3);
 
-            <div class="project-row scroll-effect">
-                <div class="media-side">
-                    <img src="assets/nataraja-main.jpg" alt="Nataraja Cinematic">
-                </div>
-                <div class="text-side">
-                    <h3>01. Ancient Temple Cinematic</h3>
-                    <p class="tech">Unreal Engine 5 | Level Design | Cinematic</p>
-                    <p>A cinematic sequence featuring a Nataraja statue inside an ancient cave. I designed the environment layout, adjusted lighting and fog for a mystical ambiance, and utilized post-process volumes for visual tone.</p>
-                </div>
-            </div>
+for(let i = 0; i < count * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 100;
+    colors[i] = Math.random();
+}
 
-            <div class="project-row reverse scroll-effect">
-                <div class="media-side">
-                    <video controls poster="assets/japan-poster.jpg">
-                        <source src="assets/japan-cinematic.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="text-side">
-                    <h3>02. Japan Station</h3>
-                    <p class="tech">Unreal Engine 5.3 | Lumen | Real-Time Rendering</p>
-                    <p>A real-time cinematic inspired by Japanese nightlife. I focused on mood and atmosphere using directional lighting and reflection captures to simulate wet asphalt. The scene features Niagara rain particles and thunder effects.</p>
-                </div>
-            </div>
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-            <div class="project-row scroll-effect">
-                <div class="media-side">
-                    <img src="assets/vr-museum-main.jpg" alt="VR Museum">
-                </div>
-                <div class="text-side">
-                    <h3>03. VR Museum Experience</h3>
-                    <p class="tech">Meta Quest | Spatial Storytelling | Interaction</p>
-                    <p>A fully immersive VR museum. I architected the structure using modular assets and programmed complex interactions, allowing users to physically grab and inspect artifacts using hand-tracking physics.</p>
-                </div>
-            </div>
+const material = new THREE.PointsMaterial({
+    size: 0.5, 
+    map: getStarTexture(), 
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.8,
+    depthWrite: false, 
+    blending: THREE.AdditiveBlending
+});
 
-            <div class="project-row reverse scroll-effect">
-                <div class="media-side">
-                    <video controls poster="assets/lock-poster.jpg">
-                        <source src="assets/lock-key-gameplay.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="text-side">
-                    <h3>04. Lock-and-Key Logic</h3>
-                    <p class="tech">UE Blueprints | AI Behavior Trees</p>
-                    <p>A logic-driven puzzle game. I implemented a glowing key mechanic, dynamic event triggers, and a NavMesh-based AI enemy that actively tracks the player, adding tension to the exploration.</p>
-                </div>
-            </div>
+const starMesh = new THREE.Points(geometry, material);
+sceneBG.add(starMesh);
+cameraBG.position.z = 20;
 
-            <div class="project-row scroll-effect">
-                <div class="media-side">
-                    <video controls poster="assets/shooter-poster.jpg">
-                        <source src="assets/shooter-gameplay.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="text-side">
-                    <h3>05. Third Person Shooter</h3>
-                    <p class="tech">Combat Mechanics | UI/UX | AI Agents</p>
-                    <p>A complete shooter framework focusing on AI combat. Enemies utilize pathfinding to engage the player. I also designed the UI/HUD for health systems and the "Game Over" logic flow.</p>
-                </div>
-            </div>
+// --- PART 2: HERO 3D OBJECT ---
+const objectContainer = document.getElementById('hero-object-container');
+const sceneObj = new THREE.Scene();
+const cameraObj = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+const rendererObj = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
-        </div>
-    </section>
+rendererObj.setSize(300, 300);
+objectContainer.appendChild(rendererObj.domElement);
 
-    <section id="gallery">
-        <div class="container">
-            <h2 class="section-header scroll-effect">Gallery</h2>
-            <p class="gallery-sub scroll-effect">Behind the scenes logic and environmental details.</p>
-            
-            <div class="gallery-grid">
-                <img src="assets/gallery-1.jpg" class="scroll-effect" alt="Detail Shot">
-                <img src="assets/gallery-2.jpg" class="scroll-effect" alt="Detail Shot">
-                <img src="assets/gallery-3.jpg" class="scroll-effect" alt="Blueprint Logic">
-                <img src="assets/gallery-4.jpg" class="scroll-effect" alt="UI Design">
-            </div>
-        </div>
-    </section>
+const geoObj = new THREE.IcosahedronGeometry(2, 1);
+const matObj = new THREE.MeshBasicMaterial({ 
+    color: 0x00f3ff, 
+    wireframe: true 
+});
+const heroShape = new THREE.Mesh(geoObj, matObj);
+sceneObj.add(heroShape);
+cameraObj.position.z = 6;
 
-    <section id="contact" class="scroll-effect">
-        <div class="container">
-            <h2>Let's Create Something Amazing</h2>
-            <p>I am currently open for internships and full-time opportunities in Game Design and Virtual Production.</p>
-            
-            <a href="mailto:maithili.vyas13@gmail.com" class="email-link">maithili.vyas13@gmail.com</a>
+// --- ANIMATION LOOP ---
+const animate = () => {
+    requestAnimationFrame(animate);
+    starMesh.rotation.y += 0.0005; 
+    starMesh.rotation.x += 0.0002;
+    heroShape.rotation.x += 0.01;
+    heroShape.rotation.y += 0.01;
+    rendererBG.render(sceneBG, cameraBG);
+    rendererObj.render(sceneObj, cameraObj);
+};
+animate();
 
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/maithili-vyas-829262286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
-                <a href="https://github.com/maithilivyas" target="_blank">GitHub</a>
-                <a href="https://maithili.itch.io" target="_blank">Itch.io</a>
-            </div>
+window.addEventListener('resize', () => {
+    cameraBG.aspect = window.innerWidth / window.innerHeight;
+    cameraBG.updateProjectionMatrix();
+    rendererBG.setSize(window.innerWidth, window.innerHeight);
+});
 
-            <a href="downloads/resume.pdf" target="_blank" class="btn-download">
-                Download My Resume ↓
-            </a>
-        </div>
-    </section>
+// --- PART 3: SMOOTH SCROLL REVEAL ---
+window.addEventListener('scroll', reveal);
 
-    <footer>
-        <p>© 2026 Maithili Vyas | Built with Code & Creativity</p>
-    </footer>
+function reveal() {
+    var reveals = document.querySelectorAll('.reveal');
 
-    <script src="script.js"></script>
-</body>
-</html>
+    for (var i = 0; i < reveals.length; i++) {
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 100;
+
+        if (revealtop < windowheight - revealpoint) {
+            reveals[i].classList.add('active');
+        } else {
+            reveals[i].classList.remove('active');
+        }
+    }
+}
