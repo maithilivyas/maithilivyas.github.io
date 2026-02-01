@@ -1,106 +1,142 @@
-// --- PART 1: BACKGROUND STARS (FIXED SHAPE) ---
-const starContainer = document.getElementById('star-container');
-const sceneBG = new THREE.Scene();
-const cameraBG = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const rendererBG = new THREE.WebGLRenderer({ alpha: true });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maithili Vyas | 3D Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@500;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
 
-rendererBG.setSize(window.innerWidth, window.innerHeight);
-starContainer.appendChild(rendererBG.domElement);
+    <div id="star-container"></div>
 
-// FUNCTION TO CREATE A CIRCLE TEXTURE (Removes Squares)
-function getStarTexture() {
-    const canvas = document.createElement('canvas');
-    canvas.width = 32;
-    canvas.height = 32;
-    const ctx = canvas.getContext('2d');
-    const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
-    grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 32, 32);
-    const texture = new THREE.Texture(canvas);
-    texture.needsUpdate = true;
-    return texture;
-}
+    <main>
+        
+        <section class="hero">
+            <div class="hero-flex">
+                <div class="hero-text">
+                    <h1>Hello, I am <br> <span class="name-highlight">MAITHILI VYAS</span></h1>
+                    <p class="subtitle">Architect of Virtual Worlds</p>
+                </div>
+                <div class="hero-3d-object" id="hero-object-container"></div>
+            </div>
+        </section>
 
-const geometry = new THREE.BufferGeometry();
-const count = 3000;
-const positions = new Float32Array(count * 3);
-const colors = new Float32Array(count * 3);
+        <section id="projects">
+            <h2 class="section-title reveal">MISSION LOGS</h2>
+            
+            <div class="project-row glass-panel reveal">
+                <div class="media-side">
+                    <img src="Assests/nataraja-main.jpg" alt="Ancient Temple">
+                </div>
+                <div class="text-side">
+                    <h3>ANCIENT TEMPLE CINEMATIC</h3>
+                    <p class="tech">UNREAL ENGINE 5</p>
+                    <p>A mystical environment cinematic featuring a Nataraja statue. Utilized Lumen lighting and Volumetric Fog to create a deep, atmospheric mood.</p>
+                </div>
+            </div>
 
-for(let i = 0; i < count * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 100;
-    colors[i] = Math.random();
-}
+            <div class="project-row reverse glass-panel reveal">
+                <div class="media-side">
+                    <video controls poster="Assests/japan-poster.jpg">
+                        <source src="Assests/japan-cinematic.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-side">
+                    <h3>JAPAN STATION</h3>
+                    <p class="tech">REAL-TIME RENDERING</p>
+                    <p>Cyberpunk night scene study. Focused on wet surface shaders (rain effect) and neon lighting composition using UE5.</p>
+                </div>
+            </div>
 
-geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            <div class="project-row glass-panel reveal">
+                <div class="media-side">
+                    <img src="Assests/vr-museum-main.jpg" alt="VR Museum">
+                </div>
+                <div class="text-side">
+                    <h3>VR MUSEUM EXPERIENCE</h3>
+                    <p class="tech">META QUEST | INTERACTION</p>
+                    <p>A fully immersive virtual reality museum. Programmed hand-tracking physics allowing players to pick up and inspect artifacts.</p>
+                </div>
+            </div>
 
-const material = new THREE.PointsMaterial({
-    size: 0.5, 
-    map: getStarTexture(), 
-    vertexColors: true,
-    transparent: true,
-    opacity: 0.8,
-    depthWrite: false, 
-    blending: THREE.AdditiveBlending
-});
+            <div class="project-row reverse glass-panel reveal">
+                <div class="media-side">
+                    <video controls poster="Assests/lock-poster.jpg">
+                        <source src="Assests/lock-key-gameplay.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-side">
+                    <h3>LOCK & KEY LOGIC</h3>
+                    <p class="tech">BLUEPRINTS | PUZZLE</p>
+                    <p>A logic-driven puzzle game with a horror twist. Implemented AI chaser mechanics that hunt the player while they solve riddles.</p>
+                </div>
+            </div>
+            
+            <div class="project-row glass-panel reveal">
+                <div class="media-side">
+                    <video controls poster="Assests/shooter-poster.jpg">
+                        <source src="Assests/shooter-gameplay.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-side">
+                    <h3>FPS COMBAT SYSTEM</h3>
+                    <p class="tech">AI AGENTS | COMBAT</p>
+                    <p>Tactical shooter framework. Designed intelligent enemy AI that flanks and takes cover, plus a dynamic health/damage system.</p>
+                </div>
+            </div>
 
-const starMesh = new THREE.Points(geometry, material);
-sceneBG.add(starMesh);
-cameraBG.position.z = 20;
+        </section>
 
-// --- PART 2: HERO 3D OBJECT ---
-const objectContainer = document.getElementById('hero-object-container');
-const sceneObj = new THREE.Scene();
-const cameraObj = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
-const rendererObj = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        <section id="gallery">
+            <h2 class="section-title reveal">GALLERY</h2>
+            <div class="gallery-grid reveal">
+                <div class="gallery-item"><img src="Assests/gallery-1.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="Assests/gallery-2.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="Assests/gallery-3.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="Assests/gallery-4.jpg" alt="Gallery"></div>
+            </div>
+        </section>
 
-rendererObj.setSize(300, 300);
-objectContainer.appendChild(rendererObj.domElement);
+        <section id="about-me" class="reveal">
+            <img src="Assests/profile.jpg" alt="Maithili Vyas" class="profile-circle">
+            
+            <h2 class="about-title">Maithili Vyas</h2>
+            <p class="about-role">Level Designer | Virtual Production</p>
+            
+            <div class="about-bio">
+                <p>
+                    I am a passionate Game Developer dedicated to creating immersive 3D environments and interactive virtual reality experiences.
+                </p>
+                <br>
+                <p>
+                    Currently pursuing my <strong>B.Tech in AIML</strong>, I apply technical logic to creative design, pushing the boundaries of what's possible in <strong>Unreal Engine 5</strong> and <strong>Unity</strong>. My focus is on storytelling through world-building and exploring the future of AR/VR technologies.
+                </p>
+            </div>
+        </section>
 
-const geoObj = new THREE.IcosahedronGeometry(2, 1);
-const matObj = new THREE.MeshBasicMaterial({ 
-    color: 0x00f3ff, 
-    wireframe: true 
-});
-const heroShape = new THREE.Mesh(geoObj, matObj);
-sceneObj.add(heroShape);
-cameraObj.position.z = 6;
+        <footer id="contact-footer" class="reveal">
+            <h2 class="footer-title">Let's Create Something Amazing</h2>
+            <p class="footer-sub">I am currently open for internships and full-time opportunities in Game Design and Virtual Production.</p>
+            
+            <a href="mailto:maithili.vyas13@gmail.com" class="footer-email">maithili.vyas13@gmail.com</a>
+            
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+                <a href="https://github.com/maithilivyas" target="_blank">GitHub</a>
+                <a href="https://maithili.itch.io" target="_blank">Itch.io</a>
+            </div>
 
-// --- ANIMATION LOOP ---
-const animate = () => {
-    requestAnimationFrame(animate);
-    starMesh.rotation.y += 0.0005; 
-    starMesh.rotation.x += 0.0002;
-    heroShape.rotation.x += 0.01;
-    heroShape.rotation.y += 0.01;
-    rendererBG.render(sceneBG, cameraBG);
-    rendererObj.render(sceneObj, cameraObj);
-};
-animate();
+            <a href="Downloads/resume.pdf" target="_blank" class="btn-gold">
+                Download My Resume ↓
+            </a>
+        </footer>
 
-window.addEventListener('resize', () => {
-    cameraBG.aspect = window.innerWidth / window.innerHeight;
-    cameraBG.updateProjectionMatrix();
-    rendererBG.setSize(window.innerWidth, window.innerHeight);
-});
+    </main>
 
-// --- PART 3: SMOOTH SCROLL REVEAL ---
-window.addEventListener('scroll', reveal);
-
-function reveal() {
-    var reveals = document.querySelectorAll('.reveal');
-
-    for (var i = 0; i < reveals.length; i++) {
-        var windowheight = window.innerHeight;
-        var revealtop = reveals[i].getBoundingClientRect().top;
-        var revealpoint = 100;
-
-        if (revealtop < windowheight - revealpoint) {
-            reveals[i].classList.add('active');
-        } else {
-            reveals[i].classList.remove('active');
-        }
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
