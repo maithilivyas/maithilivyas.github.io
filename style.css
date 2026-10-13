@@ -109,8 +109,8 @@ body {
 
 .media-side { flex: 1.2; }
 
-/* --- GLOBAL IMAGE FIX --- */
-.media-side img, .media-side video, .gallery-item img {
+/* --- GLOBAL IMAGE & VIDEO FIX --- */
+.media-side img, .media-side video, .gallery-item img, .gallery-item video {
     width: 100%;
     aspect-ratio: 16 / 9; /* Cinema Standard */
     object-fit: cover;    /* No Stretching */
@@ -167,13 +167,13 @@ body {
     border: 1px solid var(--glass-border);
 }
 
-.gallery-item img {
+.gallery-item img, .gallery-item video {
     height: 250px;
     transition: 0.3s;
     filter: grayscale(40%);
 }
 
-.gallery-item img:hover {
+.gallery-item img:hover, .gallery-item video:hover {
     filter: grayscale(0%);
     border-color: var(--cyan);
     transform: scale(1.02);
